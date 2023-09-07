@@ -1,0 +1,71 @@
+{% extends 'app_general/component/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'app_general/css/homeee.css' %}">
+{% endblock %}
+
+<!--#b4d9ef-->
+{% block main %}
+<div class="main-div-content">
+    <div>
+        <img class="image" src="{% static 'app_general/image/search_img.jpg' %}">
+        <div class="search-center-div">
+            <h2 class="search-text">ค้นหาแบบฝึกหัด</h2>
+            <div class="search-box">
+                <div class="search-bar">
+                    <img class="search-lens" src="{% static 'app_general/image/lens.png' %}">
+                    <form action="{% url 'home' %}" method="POST">
+                        {% csrf_token %}
+                        {% if searched %}
+                        <input class="searched" value="{{searched}}" name="searched">
+                        {% else %}
+                        <input class="searched" value="ค้นหา..." name="searched">
+                        {% endif %}
+                    </form>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="suggest"><img class="suggest-img"   src="{% static 'app_general/image/icons/triangle.png' %}"><h4 class="suggest-text">แนะนำ</h4></div>
+    <div class="exam-flex">
+        
+        {% if searched %}
+
+        {% for exercise in exercises_searched %}
+        <div class="exam-box" style="background-color: {{exercise.color}};">
+            <a href="{% url 'exam' exercise.ref_id %}">
+            <img src="{{ exercise.image.url }}" alt="ไม่พบ"> 
+            <p class="exercise-text">{{ exercise.title }}</p>
+            <p>วิชา : {{exercise.subject}}</p>
+            <p>จำนวนข้อ : {{exercise.perround_problem}} /{{exercise.max_problem}}</p>
+            <p>เวลาจำกัด : {{exercise.time}} นาที</p>
+            </a>
+        </div>
+
+        {% empty %}
+        <p class="unfound-text">ไม่พบข้อมูล</p>
+
+        {% endfor %}
+
+        {% else %}
+
+        {% for exercise in exercises %}
+        <div class="exam-box" style="background-color:{{exercise.color}};">
+            <a href="{% url 'exam' exercise.ref_id %}">
+            <img src="{{ exercise.image.url }}" alt="ไม่พบ">
+            <h3 class="exercise-text">{{ exercise.title }}</h3>
+            <p>วิชา : {{exercise.subject}}</p>
+            <p>จำนวนข้อ : {{exercise.perround_problem}} /{{exercise.max_problem}}</p>
+            <p>เวลาจำกัด : {{exercise.time}} นาที</p>
+            </a>
+        </div>
+
+        {% empty %}
+        <p class="unfound-text">ไม่พบข้อมูล</p>
+
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

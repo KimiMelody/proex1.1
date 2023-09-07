@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proexponent</title>
+    <link rel="stylesheet" href="{% static 'app_exercise/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/font.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/hh.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'app_exercise/css/detail_exam.css' %}" />
+</head>
+<body>
+    <img class="background" src="{% static 'app_exercise/image/line.png' %}">
+    <div class="contain">
+        <div class="left">
+        <h1>{{exercise.title}}</h1>
+        <h2>{{exam_ref_id}}</h2>
+        <ul>
+            <li>วิชา : {{exercise.subject}}</li>
+            <li>โจทย์ต่อรอบ : {{exercise.perround_problem}}</li>
+            <li>โจทย์ทั้งหมด : {{exercise.max_problem}}</li>
+        </ul>
+        <form action="{% url 'pages' exam_ref_id=exam_ref_id page=1 %}" method="post">
+            {% csrf_token %}
+            <input class="start" type="submit" value="เริ่มทำแบบฝึกหัด">
+        </form>
+        <form action="{% url 'exam' exam_ref_id=exam_ref_id %}" method="post">
+            {% csrf_token %}
+            <button class="start" type="submit" value=1 name="random">สุ่มใหม่</button>
+        </form>
+        </div>
+        <div class="right">
+        </div>
+    </div>
+</body>
+</html>

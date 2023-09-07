@@ -1,0 +1,123 @@
+{% extends 'app_general/component/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'app_general/css/evaluation_spec.css' %}">
+<style>
+</style>
+{% endblock %}
+{% block js %}{% endblock %}
+
+{% block main %}
+<div class="top_eva_spec">
+
+    <div class="top_eva_spec_col1">
+        <div class="content">
+        <h1>จำนวนครั้งที่ทำ</h1><br>
+        <h1 class="text_spec_col">{{count}}</h1>
+        </div>
+    </div> 
+
+    <div class="top_eva_spec_col2">
+        <img src="{{ exercise.image.url }}" alt="ไม่พบ">
+        <h1>{{exercise.title}}</h1>
+    </div>
+    
+    <div class="top_eva_spec_col3">
+        <div class="content">
+        <h1>อัตราการทำถูก</h1><br>
+        <h1 class="text_spec_col">{{percent}} %</h1>
+        </div>
+    </div>
+    
+</div>
+<div>
+  {% for results_set in users_choose_results %}
+
+    <button style="width:100%;background-color: gray;" class="head_results">
+      <p>ทำเมื่อวันที่ : {{results_set.doing_at.day}}/{{results_set.doing_at.month}}/{{results_set.doing_at.year}}/{{results_set.doing_at.time}} | ได้คะแนน : {{results_set.total_point}} | จากทั้งหมด : {{results_set.max_point}}</p>
+    </button>
+    <table class="results">
+      <tr>
+        <th>ข้อที่</th>
+        <th>โจทย์</th>
+        <th>คำตอบที่ถูก</th>
+        <th>คำตอบที่เลือก</th>
+        <th>สถานะ</th>
+        <th></th>
+      </tr>
+      {% for results in results %}
+      {% if results.doing_at == results_set.doing_at %}
+      <tr>
+        <td>{{ results.number }}</td>
+        <td>{{ results.problem_text }}</td>
+        
+        {% for exam in exam %}
+        {% if exam.problem_text == results.problem_text %}
+        {% if results.correct_c_id == exam.c_id1 %}
+        <td>{{ results.correct_c_id }}. {{exam.choice1 }}</td>
+
+        {% elif results.correct_c_id == exam.c_id2 %}
+        <td>{{ results.correct_c_id }}. {{exam.choice2 }}</td>
+
+        {% elif results.correct_c_id == exam.c_id3 %}
+        <td>{{ results.correct_c_id }}. {{exam.choice3 }}</td>
+
+        {% elif results.correct_c_id == exam.c_id4 %}
+        <td>{{ results.correct_c_id }}. {{exam.choice4 }}</td>
+        {% else %}
+        <td>เจอโค้ดอ่ะเออเร่อ เจอเธอ เออน่ารัก</td>
+        {% endif %}
+
+        {% if results.choose == exam.c_id1 %}
+        <td>{{ results.choose }}. {{exam.choice1 }}</td>
+
+        {% elif results.choose == exam.c_id2 %}
+        <td>{{ results.choose }}. {{exam.choice2 }}</td>
+
+        {% elif results.choose == exam.c_id3 %}
+        <td>{{ results.choose }}. {{exam.choice3 }}</td>
+
+        {% elif results.choose == exam.c_id4 %}
+        <td>{{ results.choose }}. {{exam.choice4 }}</td>
+        {% else %}
+        <td>เจอโค้ดอ่ะเออเร่อ เจอเธอ เออน่ารัก2</td>
+        {% endif %}
+        
+        {% endif %}
+        
+        {% endfor %}
+        
+
+
+        {% if results.status == 0 %}
+        <td style="color:red;">ผิด</td>
+        {% elif results.status == 1 %}
+        <td style="color:green;">ถูก</td>
+        {% else %}
+        <td >error</td>
+        {% endif %}
+
+        <td>
+          <a href="#" class="showSolution">ดูวิธีทำ</a>
+          {% for exam in exam %}
+            {% if exam.problem_text == results.problem_text %}
+              <div class="imageContainer">
+                <img src="{{ exam.solution.url }}" alt="ไม่พบ" class="solution">
+                <span id="closeIcon" class="close-icon">X</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'app_general/js/eva_spec.js' %}"></script>
+{% endblock %}

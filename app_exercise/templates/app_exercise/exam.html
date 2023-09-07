@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proexponent | {{ title }} | {{ page }}</title>
+    <link rel="stylesheet" href="{% static 'app_exercise/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/font.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/hh.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'app_exercise/css/exam.css' %}" />
+</head>
+<body>
+    <img class="background" src="{% static 'app_exercise/image/line.png' %}">
+    <div class="box">
+        <h1 class="title">{{page}}. | {{ title }}</h1>
+        <div class="questionBox"><h3>{{problem.problem_text}}</h3></div>
+        <div>
+        <form action="{% url 'pages' exam_ref_id=exam_ref_id page=page|add:1 %}" method="post" class="optionBox">
+            {% csrf_token %}
+            <button type="submit" value=1 name="choose">{{ problem.choice1 }}</button>
+            <button type="submit" value=2 name="choose">{{ problem.choice2 }}</button>
+            <button type="submit" value=3 name="choose">{{ problem.choice3 }}</button>
+            <button type="submit" value=4 name="choose">{{ problem.choice4 }}</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

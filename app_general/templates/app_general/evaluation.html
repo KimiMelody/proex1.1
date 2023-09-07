@@ -1,0 +1,56 @@
+{% extends 'app_general/component/base.html' %}
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'app_general/css/evaluation5555.css' %}">{% endblock %}
+
+{% block main %}
+<div class="main-div">
+    <div class="eva-search">
+        <div class="eva-search-center-div">
+            <h2 class="eva-search-text">ค้นหาแบบฝึกหัด</h2>
+            <div class="eva-search-box">
+                <div class="eva-search-bar">
+                    <img class="eva-search-lens" src="{% static 'app_general/image/lens.png' %}">
+                    <form action="{% url 'evaluation' %}" method="POST">
+                        {% csrf_token %}
+                        {% if searched %}
+                        <input class="eva-searched" value="{{searched}}" name="searched">
+                        {% else %}
+                        <input class="eva-searched" value="ค้นหา..." name="searched">
+                        {% endif %}
+                    </form>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="recent">
+        <div class="recent-contain">
+            <div class="recent-exam">
+            <!--  ใส่ตรงนี้   -->
+            {% for result in lastest_result %}
+            {% for exercise in exercises %}
+            {% if result.ref_id == exercise.ref_id %}
+                <div class="recent-exam-box" style="background-color: {{exercise.color}};">
+                    <a href="{% url 'eva_spec' exercise.ref_id %}">
+                    <img src="{{ exercise.image.url }}" alt="ไม่พบ">
+                    <h3 class="exercise-text">{{ exercise.title }}</h3>
+                    <p>ทำเมื่อ : {{result.doing_at}}</p>
+                    {% if result.total_point >= result.max_point|divisibleby:2 %}
+                    <p style="color:rgb(77, 142, 13);">{{result.total_point}} / {{result.max_point}}</p>
+                    {% elif result.total_point < result.max_point|divisibleby:2 %}
+                    <p style="color:red;" >{{result.total_point}} / {{result.max_point}}</p>
+                    {% else %}<p>พบปัญหา</p><p style="color:rgb(77, 142, 13);">{{result.total_point}} / {{result.max_point}}</p>{% endif %}
+                    <p>เวลาที่ใช้ : {{exercise.time}} นาที</p>
+                    </a>
+                </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

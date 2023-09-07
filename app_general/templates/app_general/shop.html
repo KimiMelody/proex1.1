@@ -1,0 +1,21 @@
+{% extends 'app_general/component/base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'app_general/css/homeee.css' %}">
+{% endblock %}
+
+{% block main %}
+<div style="margin-top: 10vh;display: flex;flex-wrap: wrap;justify-content: space-between;">
+    {% for shortnote in shortnotes %}
+    <div class="shortnote_box" style="width: calc(30% - 20vh);margin: 2%;">
+    <a href="{% url 'shopdetail' shortnote.id %}" style="text-align: center;color: black;">
+        <img src="{{ shortnote.cover.url }}" alt="ไม่พบ" style="max-width: 100%;"> 
+        <p class="shortnote-text">{{ shortnote.name }}</p>
+        <p>{{shortnote.author}}</p>
+        <p>{{shortnote.subject}}</p>
+    </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

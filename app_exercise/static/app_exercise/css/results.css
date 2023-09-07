@@ -1,0 +1,100 @@
+/*-- body --*/
+.grid{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 100% ;
+    grid-template-areas:"left main";
+
+}
+
+h3 {
+    margin: 0;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/*-- left-div --*/
+
+.page-left{
+    grid-area: left;
+    background-color: #217EFD;
+    position: fixed;
+    width: 20%;
+    height: 100%;
+    z-index: 0;
+}
+.left{
+    padding: 5%;
+}
+
+.GetBack {
+    display: flex;
+    align-items: center;
+}
+  
+.arrow {
+    margin-right: 5px;
+    color: white;
+}
+  
+.GetBack_text {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: -20px;
+    color: white;
+
+}
+
+.exam-box{
+    margin-top: 80px;
+    text-decoration: none;
+    border-radius: 70px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    color: black;
+}
+.exam-box img{
+    width: 60%;
+    align-self: center;
+}
+.exam-box h3{
+    margin-top: 0px;
+}
+
+.point{
+    margin-top: 100px;
+    color: white;
+    text-align: center;
+    margin-left: -10px;
+}
+
+/*-- main-div --*/
+
+.page-main{
+    grid-area: main;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.result-box {
+    background-color: #FFF3D4;
+    width: 30%;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    margin-top: 10px;
+}

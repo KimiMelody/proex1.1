@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      grid-gap: 10px;
+    }
+
+    .item1 {
+      grid-column: 1;
+      grid-row: span 2;
+    }
+
+    .item2 {
+      grid-column: 2;
+    }
+
+    .item3 {
+      grid-column: 3;
+      grid-row: span 2;
+    }
+
+    .content {
+      background-color: lightgray;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="item1">
+      <div class="content">
+        เนื้อหาในช่องที่ 1<br>
+        แถวที่ 1
+      </div>
+    </div>
+    <div class="item2">
+      <div class="content">
+        เนื้อหาในช่องที่ 2
+      </div>
+    </div>
+    <div class="item3">
+      <div class="content">
+        เนื้อหาในช่องที่ 3<br>
+        แถวที่ 3
+      </div>
+    </div>
+  </div>
+</body>
+</html>

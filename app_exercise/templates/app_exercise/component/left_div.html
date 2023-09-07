@@ -1,0 +1,19 @@
+<div class="result">
+    <a class="GetBack" href="{% url 'home' %}">
+        <h3 class="arrow">&larr;</h3>
+        <h3 class="GetBack_text">หน้าหลัก</h3>
+    </a>
+    
+    <div class="exam-box" style="background-color: #b4d9ef;">
+        <img src="{{ exercise.image.url }}" alt="ไม่พบ">
+        <h3 class="exercise-text">{{ exercise.title }}</h3>
+        <p>วิชา : {{exercise.subject}}</p>
+        <p>จำนวนข้อ : {{exercise.perround_problem}} /{{exercise.max_problem}}</p>
+        <p>เวลาจำกัด : {{exercise.time}} นาที</p>
+    </div>
+    
+    <div class="point">
+        <h4>คะแนน</h4>
+        <h4>{{exercise_results.total_point}} / {{exercise.perround_problem}}</h4>
+    </div>
+</div>

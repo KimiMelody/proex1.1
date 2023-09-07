@@ -1,0 +1,16 @@
+{% extends 'app_general/component/base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'app_general/css/homeee.css' %}">
+{% endblock %}
+
+{% block main %}
+<div>
+    <div>
+        <img src="{{ shortnote.cover.url }}" alt="ไม่พบ">
+    </div>
+    <div>
+    </div>
+</div>
+{% endblock %}

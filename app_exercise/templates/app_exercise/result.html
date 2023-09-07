@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'app_exercise/css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/hh.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/font.css' %}" />
+    <link rel="stylesheet" href="{% static 'app_exercise/css/results.css' %}" />
+    <title>Proexponent | {{exercise.title}} | ประเมินผล</title>
+</head>
+<body>
+    <div class="grid">
+        <img class="background" src="{% static 'app_exercise/image/line.png' %}">
+        <div class="page-left">
+            <div class="left">{% include 'app_exercise/component/left_div.html' %}</div>
+        </div>
+        <div class="page-main">
+            {% for result in exam_result %}
+            {% for problem in problems %}
+            {% if result.problem_text == problem.problem_text %}
+            <div class="result-box">
+                {% if result.status == 1 %}
+                <p style="color:greenyellow">{{result.status}} / 1</p>
+                {% elif result.status == 0 %}
+                <p style="color: red;">{{result.status}} / 1</p>
+                {% else %}
+                <p>something was wrong!!!</p>
+                {% endif %}
+
+                <h1>{{problem.problem_text}}</h1>
+
+                {% if result.choose == problem.c_id1 %}
+                <p>คำตอบที่ท่านเลือก : {{problem.c_id1}}. {{problem.choice1}}</p>
+                {% elif result.choose == problem.c_id2 %}
+                <p>คำตอบที่ท่านเลือก : {{problem.c_id2}}. {{problem.choice2}}</p>
+                {% elif result.choose == problem.c_id3 %}
+                <p>คำตอบที่ท่านเลือก : {{problem.c_id3}}. {{problem.choice3}}</p>
+                {% elif result.choose == problem.c_id4 %}
+                <p>คำตอบที่ท่านเลือก : {{problem.c_id4}}. {{problem.choice4}}</p>
+                {% else %}
+                <p>something in the way she move</p>
+                {% endif %}
+
+                {% if problem.correct_c_id == problem.c_id1 %}
+                <p>คำตอบที่ถูกต้อง : {{ problem.c_id1 }}. {{problem.choice1}}</p>
+                {% elif problem.correct_c_id == problem.c_id2 %}
+                <p>คำตอบที่ถูกต้อง : {{ problem.c_id2 }}. {{problem.choice2}}</p>
+                {% elif problem.correct_c_id == problem.c_id3 %}
+                <p>คำตอบที่ถูกต้อง : {{ problem.c_id3 }}. {{problem.choice3}}</p>
+                {% elif problem.correct_c_id == problem.c_id4 %}
+                <p>คำตอบที่ถูกต้อง : {{ problem.c_id4 }}. {{problem.choice4}}</p>
+                {% else %}
+                <p>มีดวงใจหนึ่งดวงจะมอบให้เธอไว้ครอง ปล.errorจ่ะฝากแจ้งด้วย</p>
+                {% endif %}
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

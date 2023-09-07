@@ -1,0 +1,209 @@
+header{
+  background-color: #217EFD;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: fixed;
+  display: grid;
+  grid-template-columns: 7% 80% 4% 4% 5%;
+  grid-template-rows: 100% ;
+  grid-template-areas:"logo text bell setting user";
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.logo{
+  grid-area: logo;
+}
+.text{
+  grid-area: text;
+  color:white;
+  font-weight: 50;
+  font-size: 20px;
+}
+.setting{
+  grid-area: setting;
+}
+.bell{
+  grid-area: bell;
+}
+.user{
+  grid-area: user;
+}
+
+/*--- main content ---*/
+.grid{
+  display: grid;
+  grid-template-columns: 12.5% 87.5%;
+  grid-template-rows: 100% ;
+  grid-template-areas:"left main";
+}
+/* left-div --> */
+.left-div{
+  grid-area: left;
+  background-color: #DFDFDF;
+  position: fixed;
+  width: 12.5%;
+  height: 100%;
+  z-index: 0;
+}
+.home{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+  margin-top: 40%;
+}
+.evaluation{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+  border-bottom:solid 1px #D9D9D9 ;
+}
+.social{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+  border-bottom:solid 1px #D9D9D9 ;
+}
+.shop{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+}
+
+.left-div-contain img{
+  width: 15%;
+  margin-right: 10%;
+  margin-left: 10%;
+  vertical-align: middle;
+}
+.left-div-contain h3{
+  font-weight: 100;
+  font-size: 20px;
+  color: #217EFD;
+}
+
+.left-div-button {
+  background-color: #DFDFDF;
+  transition: background-color 0.25s ease;
+}
+
+.left-div-button:hover {
+  background-color: #B6B6B6;
+}
+
+
+/*-- main-content --*/
+.main-div{
+  grid-area: main;
+}
+
+.top_eva_spec {
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* แบ่งเป็น 3 คอลัมน์ที่มีความกว้างเท่ากัน */
+  grid-template-rows: auto auto; /* กำหนดแถวเป็นแถวที่ความสูงขึ้นอยู่กับเนื้อหาภายใน */
+  grid-gap: 10px; /* ระยะห่างระหว่างช่อง */
+  text-align: center;
+}
+
+.top_eva_spec_col1 {
+  grid-column: 1; /* ช่องที่ 1 */
+  grid-row: span 2; /* ขยายเป็น 2 แถว */
+}
+
+.top_eva_spec_col2 {
+  grid-column: 2; /* ช่องที่ 2 */
+}
+.top_eva_spec_col2 img{
+    width:80%;
+}
+.top_eva_spec_col2 h1 {
+  font-weight: 550;
+}
+
+.top_eva_spec_col3 {
+  grid-column: 3; /* ช่องที่ 3 */
+  grid-row: span 2; /* ขยายเป็น 2 แถว */
+}
+
+.text_spec_col{
+    font-size: 400%;
+}
+
+/* เพิ่มสไตล์เสริมเพื่อแสดงผลให้เห็นช่องได้ง่ายขึ้น */
+.grid-container > div {
+  background-color: lightgray;
+  padding: 20px;
+  text-align: center;
+}
+
+.grid-container > div {
+background-color: lightgray;
+padding: 20px;
+text-align: center;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+padding: 8px;
+text-align: left;
+border-bottom: 1px solid gray;
+}
+
+th {
+background-color: lightgray;
+}
+
+tr:nth-child(even) {
+background-color: #f2f2f2;
+}
+
+tr:hover {
+background-color: #ddd;
+}
+
+.imageContainer {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.solution{
+  max-width: 100%;
+  max-height: 80vh;
+}
+
+.close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*--------------Table----------------*/
+.results {
+    display: none; /* ซ่อนตารางเริ่มต้น */
+    animation: slide-down 0.3s ease-out; /* เพิ่ม animation เมื่อแสดงตาราง */
+  }
+  
+@keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}

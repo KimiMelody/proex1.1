@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app_users/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'app_general/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'app_general/css/font.css' %}">
+</head>
+<body>
+    <div class="main1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <div class="circle6"></div>
+        <img class="logo" src="{% static 'app_general/image/logo.png' %}">
+        <div class="main2">
+            <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            
+            <p class="lable">อีเมล</p>
+            <p class="input-login-form">{{ form.email }}</p>
+            <p class="lable">ชื่อผู้ใช้งาน</p>
+            <p class="input-login-form">{{ form.username }}</p>
+            <p class="lable">ชื่อ</p>
+            <p class="input-login-form">{{ form.first_name }}</p>
+            <p class="lable">รหัสผ่าน</p>
+            <p class="input-login-form">{{ form.password1 }}</p>
+            <p>{{form.password1.errors}}</p>
+            <p class="lable">ยืนยันรหัสผ่าน</p>
+            <p class="input-login-form">{{ form.password2 }}</p>
+            <p>{{form.password2.errors}}</p>
+            <div class=submit-block>
+            <button class="submit-button" style="background-color:#c6302c" type="submit">สมัครสมาชิก</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

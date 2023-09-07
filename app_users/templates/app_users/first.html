@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'app_users/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'app_users/css/first.css' %}">
+    <link rel="stylesheet" href="{% static 'app_general/css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'app_general/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'app_general/css/font.css' %}">
+</head>
+<body>
+    <div class="main1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+        <div class="circle5"></div>
+        <div class="circle6"></div>
+        <img class="logo" src="{% static 'app_general/image/logo.png' %}">
+        <div class="main2">
+            <div class=submit-block>
+            <a href="{% url 'login' %}"><button class="submit-button" style="margin-right: 1vh;" type="submit">เข้าสู่ระบบ</button></a>
+            <a href="{% url 'register' %}"><button class="submit-button" style="background-color:#c6302c;margin-left:1vh;" type="submit">สมัครสมาชิก</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>l

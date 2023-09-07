@@ -1,0 +1,200 @@
+/*--- header ---*/
+header{
+  background-color: #217EFD;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: fixed;
+  display: grid;
+  grid-template-columns: 7% 80% 4% 4% 5%;
+  grid-template-rows: 100% ;
+  grid-template-areas:"logo text bell setting user";
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.logo{
+  grid-area: logo;
+}
+.text{
+  grid-area: text;
+  color:white;
+  font-weight: 50;
+  font-size: 20px;
+}
+.setting{
+  grid-area: setting;
+}
+.bell{
+  grid-area: bell;
+}
+.user{
+  grid-area: user;
+}
+
+/*--- main content ---*/
+.grid{
+  display: grid;
+  grid-template-columns: 12.5% 87.5%;
+  grid-template-rows: 100% ;
+  grid-template-areas:"left main";
+}
+/* left-div --> */
+.left-div{
+  grid-area: left;
+  background-color: #DFDFDF;
+  position: fixed;
+  width: 12.5%;
+  height: 100%;
+  z-index: 0;
+}
+.home{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+  margin-top: 40%;
+}
+.evaluation{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+  border-bottom:solid 1px #D9D9D9 ;
+}
+.social{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+  border-bottom:solid 1px #D9D9D9 ;
+}
+.shop{
+  text-align: left;
+  border: none;
+  background-color: #DFDFDF;
+}
+
+.left-div-contain img{
+  width: 15%;
+  margin-right: 10%;
+  margin-left: 10%;
+  vertical-align: middle;
+}
+.left-div-contain h3{
+  font-weight: 100;
+  font-size: 20px;
+  color: #217EFD;
+}
+
+.left-div-button {
+  background-color: #DFDFDF;
+  transition: background-color 0.25s ease;
+}
+
+.left-div-button:hover {
+  background-color: #B6B6B6;
+}
+
+
+
+/* ---  recent contain  ---*/
+.main-div {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #EDEDED;
+}
+
+/*-----   search    ------*/
+.eva-search {
+  display: flex;
+  justify-content: center; /* horizontally center */
+  align-items: center; /* vertically center */
+  margin-top: 150px;/* adjust the height as needed */
+}
+
+.eva-search-center-div {
+  width: 200vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* horizontally center */
+}
+
+.eva-search-text {
+  font-size: 35px;
+  color: black;
+  margin-bottom: 15px;
+  opacity: 0.8;
+  text-align: center; /* center the text */
+}
+
+.eva-search-bar {
+  position: relative;
+}
+.eva-search-lens{
+  width: 5%;
+  position: absolute;
+  opacity: 0.8;
+  top:16%;
+  left:10px;
+}
+.eva-searched{
+  border-radius: 65px;
+  width: 500px;
+  border: none;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgb(65, 65, 65);
+  font-weight:100;
+  font-size: 15px;
+  text-align: left;
+}
+
+.see-all {
+  position: absolute;
+  top: 400px;
+  right :100px;
+  color: black;
+  font-weight: 200;
+  font-size: 15px;
+}
+
+
+/* ---  ล่าสุดBox  ---*/
+.recent{
+  margin-left: 2.5vh;
+  margin-right: 2.5vh;
+}
+
+.recent-exam {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center space-between;
+  align-items: center;
+}
+.recent-exam-box {
+  text-decoration: none;
+  width: 35vh;
+  height: 40vh;
+  border-radius: 70px;
+  padding: -5%;
+  padding-top: 1%;
+  text-align: center;
+  color: black;
+  margin: auto;
+  padding-bottom: -1%;
+  margin-bottom: 3%;
+}
+.recent-exam-box img{
+  max-width: 120px;
+  max-height: 120px;
+  align-self: center;
+}
+.recent-exam-box h3{
+  margin-top: 0px;
+  font-size: 20px;
+  color: black;
+}
+.recent-exam-box p{
+  color: black;
+}

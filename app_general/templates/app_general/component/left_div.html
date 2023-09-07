@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="left-div-contain">
+    <a href="{% url 'home' %}"><button class="home left-div-button" >
+        <h4><img src="{% static 'app_general/image/icons/home.png' %}">หน้าหลัก</h4>
+    </button></a>
+    <a href="{% url 'evaluation' %}"><button class="evaluation left-div-button">
+        <h4><img src="{% static 'app_general/image/icons/evaluation.png' %}">ประเมินผล</h4>
+    </button></a>
+    <a href="{% url 'home' %}"><button class="social left-div-button" >
+        <h4><img src="{% static 'app_general/image/icons/social.png' %}">สังคม</h4>
+    </button></a>
+    <a href="{% url 'shop' %}"><button class="shop left-div-button" >
+        <h4><img src="{% static 'app_general/image/icons/shop.png' %}">ร้านค้า</h4>
+    </button></a>
+</div>
+
+
+

@@ -1,0 +1,40 @@
+/* mitr-300 - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mitr';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+    url('fonts/mitr-v11-latin-300.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+    url('fonts/mitr-v11-latin-300.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+  /* mitr-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mitr';
+    font-style: normal;
+    font-weight: 400;
+    src:local(''), 
+    url('fonts/mitr-v11-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+    url('fonts/mitr-v11-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Anakotmai';
+    src:local(''), 
+    url('fonts/anakotmai-light.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+    url('fonts/anakotmai-light.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Anakotmai';
+    src:local(''), 
+    url('fonts/anakotmai-medium.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+    url('fonts/anakotmai-medium.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+    font-family: 'Anakotmai',sans-serif;
+}

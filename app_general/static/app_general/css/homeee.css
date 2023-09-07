@@ -1,0 +1,201 @@
+/*--- header ---*/
+header{
+    background-color: #217EFD;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    position: fixed;
+    display: grid;
+    grid-template-columns: 7% 80% 4% 4% 5%;
+    grid-template-rows: 100% ;
+    grid-template-areas:"logo text bell setting user";
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.logo{
+    grid-area: logo;
+}
+.text{
+    grid-area: text;
+    color:white;
+    font-weight: 50;
+    font-size: 20px;
+}
+.setting{
+    grid-area: setting;
+}
+.bell{
+    grid-area: bell;
+}
+.user{
+    grid-area: user;
+}
+
+/*--- main content ---*/
+.grid{
+    display: grid;
+    grid-template-columns: 12.5% 87.5%;
+    grid-template-rows: 100% ;
+    grid-template-areas:"left main";
+}
+/* left-div --> */
+.left-div{
+    grid-area: left;
+    background-color: #DFDFDF;
+    position: fixed;
+    width: 12.5%;
+    height: 100%;
+    z-index: 0;
+}
+.home{
+    text-align: left;
+    border: none;
+    background-color: #DFDFDF;
+    margin-top: 40%;
+}
+.evaluation{
+    text-align: left;
+    border: none;
+    background-color: #DFDFDF;
+    border-bottom:solid 1px #D9D9D9 ;
+}
+.social{
+    text-align: left;
+    border: none;
+    background-color: #DFDFDF;
+    border-bottom:solid 1px #D9D9D9 ;
+}
+.shop{
+    text-align: left;
+    border: none;
+    background-color: #DFDFDF;
+}
+
+.left-div-contain img{
+    width: 15%;
+    margin-right: 10%;
+    margin-left: 10%;
+    vertical-align: middle;
+}
+.left-div-contain h3{
+    font-weight: 100;
+    font-size: 20px;
+    color: #217EFD;
+}
+
+.left-div-button {
+    background-color: #DFDFDF;
+    transition: background-color 0.25s ease;
+}
+  
+.left-div-button:hover {
+    background-color: #B6B6B6;
+}
+/* main-div --> */
+.main-div{
+    grid-area: main;
+    background-color: #EDEDED;
+}
+.main-div-content{
+    width:95%;
+    margin: auto;
+}
+/*-- search --*/
+.image{
+    width: 100%;
+    margin-top: 90px;
+    opacity: 0.6;
+    position: relative;
+}
+.search-center-div{
+    width: 83.1%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 25%;
+}
+.search-text{
+    font-size: 35px;
+    color:black;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+.search-lens{
+    width: 2.2%;
+    position: absolute;
+    opacity: 0.8;
+    left:28.75%;
+    right: 50%;
+    top:73%;
+}
+.searched{
+    border-radius: 65px;
+    width: 500px;
+    border: none;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(65, 65, 65);
+    font-weight:100;
+    font-size: 15px;
+    text-align: left;
+}
+
+
+
+
+/*--  contain  --*/
+.suggest{
+    display: flex;
+    align-items: center;
+    margin: bottom 0px top 0px; 
+}
+.suggest-img{
+    width: 1.5%;
+}
+.suggest-text{
+    margin-left: 1%;
+}
+
+.exam-flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center space-between;
+    align-items: center;
+}
+.exam-box{
+    text-decoration: none;
+    width: 35vh;
+    height: 40vh;
+    border-radius: 70px;
+    padding: -5%;
+    padding-top: 1%;
+    text-align: center;
+    color: black;
+    margin: auto;
+    padding-bottom: -1%;
+    margin-bottom: 3%;
+
+}
+.exam-box img{
+    max-width: 120px;
+    max-height: 120px;
+    align-self: center;
+}
+.exam-box h3{
+    margin-top: 0px;
+    font-size: 20px;
+    color: black;
+}
+.exam-box p{
+    color: black;
+}
+.exercise-text{
+    font-weight: 600;
+    font-size: 17px;
+}
+.unfound-text{
+    margin: auto;
+   font-weight: 300; 
+}
